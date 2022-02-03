@@ -1,0 +1,73 @@
+COMPLETION
+8136
+
+select * from VI_COMPLETION_en_US where item_name in ('8136')
+
+636a4fab72ad45299c0f138e374dd32a	8136
+
+--TO QUERY
+--and ITEM_ID in ('636a4fab72ad45299c0f138e374dd32a')
+
+
+ZONES
+select * from VI_ZONE_en_US where item_id in
+(
+  select TO_ITEM_ID 
+    from ITEM_LINK
+where LINK_TYPE = 'WELL_ZONE'
+and FROM_ITEM_ID in ('636a4fab72ad45299c0f138e374dd32a')
+) order by ITEM_NAME
+
+da83250cc2f84a58b4ff96d08fb29fb8	W8136_J3
+
+--TO QUERY
+--and ITEM_ID in ('da83250cc2f84a58b4ff96d08fb29fb8')
+
+--FULL LIST OF WELLS AND ZONES - TO QUERY
+--and ITEM_ID in ('636a4fab72ad45299c0f138e374dd32a','da83250cc2f84a58b4ff96d08fb29fb8')
+
+-------------------------------------------------------
+
+select * 
+--delete
+  from IE_ITEM_ACT_DAY
+ where START_DATETIME >= '2022-01-01'and START_DATETIME <= '2022-01-22'
+   and ITEM_ID in ('da83250cc2f84a58b4ff96d08fb29fb8')
+   and EVENT_TYPE = 'ITEM_ACT_DAY'
+
+select * 
+--delete
+  from IE_ITEM_ACT_MTH
+ where START_DATETIME >= '2022-01-01'and START_DATETIME <= '2022-01-22'
+   and ITEM_ID in ('da83250cc2f84a58b4ff96d08fb29fb8')
+   and EVENT_TYPE = 'ITEM_ACT_MTH'
+
+select * 
+--delete
+  from IE_ACT_DAY
+ where START_DATETIME >= '2022-01-01'and START_DATETIME <= '2022-01-22'
+   and ITEM_ID in ('da83250cc2f84a58b4ff96d08fb29fb8')
+   and EVENT_TYPE = 'ACT_DAY'
+
+select * 
+--delete
+  from IE_ACT_MTH
+ where START_DATETIME >= '2022-01-01'and START_DATETIME <= '2022-01-22'
+   and ITEM_ID in ('da83250cc2f84a58b4ff96d08fb29fb8')
+   and EVENT_TYPE = 'ACT_MTH'
+
+select * 
+--delete
+  from ITEM_EVENT
+ where START_DATETIME >= '2022-01-01'and START_DATETIME <= '2022-01-22'
+   and ITEM_ID in ('da83250cc2f84a58b4ff96d08fb29fb8')
+   and EVENT_TYPE = 'TOTALS_DAY'
+
+select * 
+--delete
+  from ITEM_EVENT
+ where START_DATETIME >= '2022-01-01'and START_DATETIME <= '2022-01-22'
+   and ITEM_ID in ('da83250cc2f84a58b4ff96d08fb29fb8')
+   and EVENT_TYPE = 'TOTALS_MTH'
+
+-----------------------------------------
